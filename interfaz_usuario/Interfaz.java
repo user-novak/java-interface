@@ -8,11 +8,7 @@ package interfaz_usuario;
 import java.util.*;
 import java.awt.Graphics;
 import java.awt.Image;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
+import javax.swing.*;
 
 /**
  *
@@ -22,11 +18,13 @@ public class Interfaz extends javax.swing.JFrame {
 
     fondoPanel fondo = new fondoPanel();
     public static ArrayList<Usuario> lista_usuarios = new ArrayList<>();
+    public static String tipo_usuario;
 
     public Interfaz() {
         this.setContentPane(fondo);
         initComponents();
         this.setTitle("Interfaz de usuario");
+        tipo_usuario=asignamiento_usario();
         btn_salida.setIcon(setIcono("/imagenes/btn_salida.png", btn_salida));
         btn_salida.setPressedIcon(setEfecto_presionado("/imagenes/btn_salida.png", btn_salida, 10, 10));
         setLocationRelativeTo(null);
@@ -146,6 +144,19 @@ public class Interfaz extends javax.swing.JFrame {
         int al = boton.getHeight() - alto;
         ImageIcon icono = new ImageIcon(icon.getImage().getScaledInstance(an, al, Image.SCALE_DEFAULT));
         return icono;
+    }
+
+    public String asignamiento_usario() {
+        do {
+            String t = JOptionPane.showInputDialog("ingrese su tipo de usuario");
+            if (t.equals("administrador")) {
+                return t;
+            } else if (t.equals("empleado")) {
+                return t;
+            } else {
+                JOptionPane.showMessageDialog(null, "Error, ingrese de nuevo");
+            }
+        } while (true);
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_agre;
