@@ -18,6 +18,7 @@ public class Interfaz extends javax.swing.JFrame {
 
     fondoPanel fondo = new fondoPanel();
     public static ArrayList<Usuario> lista_usuarios = new ArrayList<>();
+    public static ArrayList<Producto>lista_productos = new ArrayList<>();
     public static String tipo_usuario;
 
     public Interfaz() {
