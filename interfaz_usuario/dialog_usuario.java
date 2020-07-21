@@ -10,6 +10,7 @@ import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -179,6 +180,7 @@ public class dialog_usuario extends javax.swing.JDialog {
         String cargo = jcombobox.getSelectedItem().toString();
         Usuario user = new Usuario(codigo,name,cargo);
         Interfaz.lista_usuarios.add(user);
+        JOptionPane.showMessageDialog(null,"Usuario agregado");
         tbox1.setText("");
         tbox2.setText("");
     }//GEN-LAST:event_btn_agregarActionPerformed

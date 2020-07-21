@@ -10,8 +10,10 @@ package pack2;
  * @author NOVAK
  */
 public class Main {
+
     public static void main(String[] args) {
-       // Interfaz p1 = new Interfaz();
-       Pantalla_colores p2 = new Pantalla_colores();
+        // Interfaz p1 = new Interfaz();
+        // Pantalla_colores p2 = new Pantalla_colores();
+  
     }
 }

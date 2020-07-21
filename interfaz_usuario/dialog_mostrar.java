@@ -7,10 +7,12 @@ package interfaz_usuario;
 
 import java.awt.Graphics;
 import java.awt.Image;
+import java.util.ArrayList;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -18,13 +20,13 @@ import javax.swing.JPanel;
  */
 public class dialog_mostrar extends javax.swing.JDialog {
 
-    /**
-     * Creates new form dialog_mostrar
-     */
+    DefaultTableModel modelo = new DefaultTableModel();
+
     public dialog_mostrar(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         btn_bus.setIcon(setIcono("/imagenes/buscador.jpg", btn_bus));
+        cargartabla();
     }
 
     /**
@@ -39,8 +41,23 @@ public class dialog_mostrar extends javax.swing.JDialog {
         jPanel1 = new fondoPanel();
         tbox_bus = new javax.swing.JTextField();
         btn_bus = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tabla_datos = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
+        tabla_datos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tabla_datos);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -51,7 +68,11 @@ public class dialog_mostrar extends javax.swing.JDialog {
                 .addComponent(tbox_bus, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btn_bus, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(125, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(31, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -60,7 +81,9 @@ public class dialog_mostrar extends javax.swing.JDialog {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tbox_bus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_bus, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(248, Short.MAX_VALUE))
+                .addGap(37, 37, 37)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(141, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -77,9 +100,27 @@ public class dialog_mostrar extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
+    public void cargartabla() {
+        ArrayList<Object> nombrecolum = new ArrayList<>();
+        nombrecolum.add("codigo");
+        nombrecolum.add("nombre");
+        nombrecolum.add("cargo");
+        for (Object columna : nombrecolum) {
+            modelo.addColumn(columna);
+        }
+        this.tabla_datos.setModel(modelo);
+        //-------------------------------------------------------
+        ArrayList<Object[]> datos = new ArrayList<>();
+        for(Usuario datosUsuario : Interfaz.lista_usuarios){
+         Object[] info = new Object[]{datosUsuario.getCod(),datosUsuario.getName(),datosUsuario.getCargo()};
+         datos.add(info);
+        }
+        for(Object []Datospersonales : datos){
+            modelo.addRow(Datospersonales);
+        }
+        tabla_datos.setModel(modelo);
+    }
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -142,6 +183,8 @@ public class dialog_mostrar extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_bus;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tabla_datos;
     private javax.swing.JTextField tbox_bus;
     // End of variables declaration//GEN-END:variables
 }
