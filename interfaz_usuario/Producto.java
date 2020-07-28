@@ -12,8 +12,17 @@ package interfaz_usuario;
 public class Producto {
     private int cod;
     private int costo;
+    private int cantidad;
     private String nombre;
 
+    public Producto(int cod, int costo, int cantidad, String nombre) {
+        this.cod = cod;
+        this.costo = costo;
+        this.cantidad = cantidad;
+        this.nombre = nombre;
+    }
+
+     
     public Producto(int cod, int costo, String nombre) {
         this.cod = cod;
         this.costo = costo;
@@ -45,6 +54,19 @@ public class Producto {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
+
+    @Override
+    public String toString() {
+        return "Producto{" + "cod=" + cod + ", costo=" + costo + ", cantidad=" + cantidad + ", nombre=" + nombre + '}';
     }
     
 }

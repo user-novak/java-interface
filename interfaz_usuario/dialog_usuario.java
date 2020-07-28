@@ -26,6 +26,7 @@ public class dialog_usuario extends javax.swing.JDialog {
         this.setTitle("agregar usuario");
         lbl_image.setIcon(seticon("/imagenes/usuario.jpg", lbl_image));
         obtn_personas.setSelected(true);
+        tbox1.setFocusable(true);
         tbox3.setVisible(false);
     }
 
@@ -117,6 +118,12 @@ public class dialog_usuario extends javax.swing.JDialog {
         btn_cambiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_cambiarActionPerformed(evt);
+            }
+        });
+
+        tbox3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tbox3ActionPerformed(evt);
             }
         });
 
@@ -220,11 +227,11 @@ public class dialog_usuario extends javax.swing.JDialog {
     }//GEN-LAST:event_jcomboboxActionPerformed
 
     private void tbox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbox1ActionPerformed
-        // TODO add your handling code here:
+        tbox1.transferFocus();
     }//GEN-LAST:event_tbox1ActionPerformed
 
     private void tbox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbox2ActionPerformed
-        // TODO add your handling code here:
+       tbox2.transferFocus();
     }//GEN-LAST:event_tbox2ActionPerformed
 
     private void btn_exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_exitActionPerformed
@@ -271,6 +278,10 @@ public class dialog_usuario extends javax.swing.JDialog {
             jcombobox.setVisible(true);
         }
     }//GEN-LAST:event_btn_cambiarActionPerformed
+
+    private void tbox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbox3ActionPerformed
+        tbox3.transferFocus();
+    }//GEN-LAST:event_tbox3ActionPerformed
 
     /**
      * @param args the command line arguments

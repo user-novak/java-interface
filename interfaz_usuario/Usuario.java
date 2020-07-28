@@ -48,4 +48,9 @@ public class Usuario {
         this.cargo = cargo;
     }
 
+    @Override
+    public String toString() {
+        return "Usuario{" + "cod=" + cod + ", name=" + name + ", cargo=" + cargo + '}';
+    }
+    
 }
