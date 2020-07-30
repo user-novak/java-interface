@@ -46,7 +46,6 @@ public class dialog_vender extends javax.swing.JDialog {
         lbl_totalProductos = new javax.swing.JLabel();
         btn_facturar = new javax.swing.JButton();
         btn_back = new javax.swing.JButton();
-        btn_agregarProducto = new javax.swing.JButton();
         btn_buscarProducto = new javax.swing.JButton();
         lbl_costo = new javax.swing.JLabel();
         btn_buscarUsuario = new javax.swing.JButton();
@@ -55,18 +54,29 @@ public class dialog_vender extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
+        lbl_datosUsuario.setBackground(new java.awt.Color(255, 255, 255));
+        lbl_datosUsuario.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
+        lbl_datosUsuario.setForeground(new java.awt.Color(255, 0, 0));
         lbl_datosUsuario.setText("DATOS USUARIO");
 
+        lbl_datosProducto.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
+        lbl_datosProducto.setForeground(new java.awt.Color(255, 0, 0));
         lbl_datosProducto.setText("DATOS PRODUCTO");
 
+        lbl_titulo.setBackground(new java.awt.Color(0, 0, 0));
+        lbl_titulo.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
         lbl_titulo.setText("DATOS BOLETA");
 
+        lbl_nombreUsuario.setForeground(new java.awt.Color(255, 51, 51));
         lbl_nombreUsuario.setText("Nombre:");
 
+        lbl_cargoUsuario.setForeground(new java.awt.Color(255, 51, 51));
         lbl_cargoUsuario.setText("Cargo:");
 
+        lbl_nombreProducto.setForeground(new java.awt.Color(251, 51, 51));
         lbl_nombreProducto.setText("Nombre:");
 
+        lbl_totalProductos.setForeground(new java.awt.Color(251, 51, 51));
         lbl_totalProductos.setText("total:");
 
         btn_facturar.setText("facturar");
@@ -80,13 +90,6 @@ public class dialog_vender extends javax.swing.JDialog {
         btn_back.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_backActionPerformed(evt);
-            }
-        });
-
-        btn_agregarProducto.setText("agregar ");
-        btn_agregarProducto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_agregarProductoActionPerformed(evt);
             }
         });
 
@@ -127,24 +130,23 @@ public class dialog_vender extends javax.swing.JDialog {
                             .addComponent(lbl_cargoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbl_nombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lbl_nombre, javax.swing.GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE)
                             .addComponent(lbl_cargo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(196, 196, 196)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(lbl_nombreProducto, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)
                             .addComponent(lbl_totalProductos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(31, 31, 31)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btn_agregarProducto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btn_buscarProducto)
-                            .addComponent(lbl_costo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(lbl_costo, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(42, 42, 42))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(62, 62, 62)
-                        .addComponent(btn_facturar, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 159, Short.MAX_VALUE)
-                        .addComponent(btn_back, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(127, 127, 127))))
+                        .addComponent(btn_facturar, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_back, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(89, 89, 89))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -157,23 +159,23 @@ public class dialog_vender extends javax.swing.JDialog {
                     .addComponent(lbl_datosProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_buscarUsuario))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_nombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbl_nombreProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_buscarProducto)
-                    .addComponent(lbl_nombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbl_nombre, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lbl_nombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lbl_nombreProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btn_buscarProducto)))
                 .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbl_cargo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lbl_cargoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lbl_totalProductos, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lbl_costo, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(94, 94, 94)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_cargoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbl_totalProductos, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbl_costo, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbl_cargo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(35, 35, 35)
-                .addComponent(btn_agregarProducto)
-                .addGap(36, 36, 36)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_facturar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_back, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btn_facturar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_back, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE))
                 .addGap(33, 33, 33))
         );
 
@@ -195,10 +197,6 @@ public class dialog_vender extends javax.swing.JDialog {
         this.dispose();
     }//GEN-LAST:event_btn_backActionPerformed
 
-    private void btn_agregarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_agregarProductoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_agregarProductoActionPerformed
-
     private void btn_buscarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarProductoActionPerformed
         String t = JOptionPane.showInputDialog("Ingrese nombre de producto");
         int i = 0;
@@ -209,6 +207,7 @@ public class dialog_vender extends javax.swing.JDialog {
                 total += e.getCosto();
                 lbl_costo.setText(String.valueOf(total));
                 i = 1;
+                b2 = true;
                 break;
             }
         }
@@ -219,13 +218,17 @@ public class dialog_vender extends javax.swing.JDialog {
     }//GEN-LAST:event_btn_buscarProductoActionPerformed
 
     private void btn_facturarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_facturarActionPerformed
-        Registro r = new Registro();
-        r.setLista_productos(list_produc);
-        r.setUsuario(usuario);
-        r.setTotal(total);
-        Interfaz.lista_registros.add(r);
-        JOptionPane.showMessageDialog(null, "Boleta emitida");
-        dispose();
+        if (b1 && b2) {
+            Registro r = new Registro();
+            r.setLista_productos(list_produc);
+            r.setUsuario(usuario);
+            r.setTotal(total);
+            Interfaz.lista_registros.add(r);
+            JOptionPane.showMessageDialog(null, "Boleta emitida");
+            dispose();
+        } else {
+            JOptionPane.showMessageDialog(null, "Ingrese datos para facturar boleta");
+        }
     }//GEN-LAST:event_btn_facturarActionPerformed
 
     private void btn_buscarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarUsuarioActionPerformed
@@ -238,6 +241,7 @@ public class dialog_vender extends javax.swing.JDialog {
                 lbl_cargo.setText(usuario.getCargo());
                 i = 1;
                 JOptionPane.showMessageDialog(null, "Usuario identidicado");
+                b1 = true;
                 break;
             }
         }
@@ -303,8 +307,8 @@ public class dialog_vender extends javax.swing.JDialog {
     public ArrayList<Producto> list_produc = new ArrayList<>();
     Usuario usuario;
     public int total = 0;
+    public boolean b1 = false, b2 = false;
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_agregarProducto;
     private javax.swing.JButton btn_back;
     private javax.swing.JButton btn_buscarProducto;
     private javax.swing.JButton btn_buscarUsuario;

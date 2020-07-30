@@ -58,17 +58,18 @@ public class dialog_usuario extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jcombobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "cliente", "administrador", "usuario", "invitado", " ", " " }));
+        jcombobox.setNextFocusableComponent(btn_agregar);
         jcombobox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jcomboboxActionPerformed(evt);
             }
         });
 
-        lbl_nombre.setFont(new java.awt.Font("Impact", 1, 14)); // NOI18N
+        lbl_nombre.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
         lbl_nombre.setForeground(new java.awt.Color(255, 51, 51));
         lbl_nombre.setText("Nombre :");
 
-        lbl_codigo.setFont(new java.awt.Font("Impact", 1, 14)); // NOI18N
+        lbl_codigo.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
         lbl_codigo.setForeground(new java.awt.Color(225, 51, 51));
         lbl_codigo.setText("Codigo :");
 
@@ -92,35 +93,49 @@ public class dialog_usuario extends javax.swing.JDialog {
             }
         });
 
-        lbl_cargo_costo.setFont(new java.awt.Font("Impact", 1, 14)); // NOI18N
+        lbl_cargo_costo.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
         lbl_cargo_costo.setForeground(new java.awt.Color(255, 51, 51));
         lbl_cargo_costo.setText("cargo :");
 
         btn_agregar.setText("agregar");
+        btn_agregar.setNextFocusableComponent(tbox1);
         btn_agregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_agregarActionPerformed(evt);
             }
         });
 
+        obtn_personas.setBackground(java.awt.Color.white);
         buttonGroup1.add(obtn_personas);
+        obtn_personas.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         obtn_personas.setText("personal");
+        obtn_personas.setOpaque(false);
         obtn_personas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 obtn_personasActionPerformed(evt);
             }
         });
 
+        obtn_productos.setBackground(java.awt.Color.white);
         buttonGroup1.add(obtn_productos);
+        obtn_productos.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         obtn_productos.setText("productos");
+        obtn_productos.setOpaque(false);
+        obtn_productos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                obtn_productosActionPerformed(evt);
+            }
+        });
 
         btn_cambiar.setText("cambiar");
+        btn_cambiar.setNextFocusableComponent(tbox1);
         btn_cambiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_cambiarActionPerformed(evt);
             }
         });
 
+        tbox3.setNextFocusableComponent(btn_agregar);
         tbox3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tbox3ActionPerformed(evt);
@@ -157,10 +172,10 @@ public class dialog_usuario extends javax.swing.JDialog {
                         .addGap(10, 10, 10))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btn_cambiar)
-                            .addComponent(obtn_productos)
-                            .addComponent(obtn_personas))
-                        .addGap(112, 204, Short.MAX_VALUE)))
+                            .addComponent(btn_cambiar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(obtn_productos, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(obtn_personas, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(112, 184, Short.MAX_VALUE)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -169,7 +184,7 @@ public class dialog_usuario extends javax.swing.JDialog {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(tbox3, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn_agregar))
+                            .addComponent(btn_agregar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -195,17 +210,17 @@ public class dialog_usuario extends javax.swing.JDialog {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(62, 62, 62)
-                        .addComponent(btn_agregar))
+                        .addComponent(btn_agregar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(obtn_personas)
+                        .addComponent(obtn_personas, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(obtn_productos)))
+                        .addComponent(obtn_productos, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(29, 29, 29)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btn_exit, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_cambiar))
-                .addContainerGap(41, Short.MAX_VALUE))
+                    .addComponent(btn_cambiar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -286,6 +301,10 @@ public class dialog_usuario extends javax.swing.JDialog {
     private void tbox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbox3ActionPerformed
         tbox3.transferFocus();
     }//GEN-LAST:event_tbox3ActionPerformed
+
+    private void obtn_productosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_obtn_productosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_obtn_productosActionPerformed
 
     /**
      * @param args the command line arguments
