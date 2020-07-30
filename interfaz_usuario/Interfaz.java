@@ -18,14 +18,15 @@ public class Interfaz extends javax.swing.JFrame {
 
     fondoPanel fondo = new fondoPanel();
     public static ArrayList<Usuario> lista_usuarios = new ArrayList<>();
-    public static ArrayList<Producto>lista_productos = new ArrayList<>();
+    public static ArrayList<Producto> lista_productos = new ArrayList<>();
+    public static ArrayList<Registro> lista_registros = new ArrayList<>();
     public static String tipo_usuario;
 
     public Interfaz() {
         this.setContentPane(fondo);
         initComponents();
         this.setTitle("Interfaz de usuario");
-        tipo_usuario=asignamiento_usario();
+        tipo_usuario = asignamiento_usario();
         comprobacion();
         btn_salida.setIcon(setIcono("/imagenes/btn_salida.png", btn_salida));
         btn_salida.setPressedIcon(setEfecto_presionado("/imagenes/btn_salida.png", btn_salida, 10, 10));
@@ -139,9 +140,9 @@ public class Interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_mosActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       dialog_vender d1 = new dialog_vender(this, false);
-       d1.setLocationRelativeTo(null);
-       d1.setVisible(true);
+        dialog_vender d1 = new dialog_vender(this, false);
+        d1.setLocationRelativeTo(null);
+        d1.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     class fondoPanel extends JPanel {
@@ -193,8 +194,9 @@ public class Interfaz extends javax.swing.JFrame {
             }
         } while (true);
     }
-    public void comprobacion(){
-        if(tipo_usuario.equals("empleado")){
+
+    public void comprobacion() {
+        if (tipo_usuario.equals("empleado")) {
             btn_agre.setVisible(false);
         }
     }

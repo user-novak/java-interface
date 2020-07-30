@@ -19,7 +19,7 @@ import javax.swing.JPanel;
  * @author NOVAK
  */
 public class dialog_usuario extends javax.swing.JDialog {
-    
+
     public dialog_usuario(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -57,7 +57,7 @@ public class dialog_usuario extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jcombobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "administrador", "usuario", "invitado", " ", " " }));
+        jcombobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "cliente", "administrador", "usuario", "invitado", " ", " " }));
         jcombobox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jcomboboxActionPerformed(evt);
@@ -231,34 +231,38 @@ public class dialog_usuario extends javax.swing.JDialog {
     }//GEN-LAST:event_tbox1ActionPerformed
 
     private void tbox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbox2ActionPerformed
-       tbox2.transferFocus();
+        tbox2.transferFocus();
     }//GEN-LAST:event_tbox2ActionPerformed
 
     private void btn_exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_exitActionPerformed
-        
+
         dispose();
     }//GEN-LAST:event_btn_exitActionPerformed
 
     private void btn_agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_agregarActionPerformed
-        if (obtn_personas.isSelected()) {
-            int codigo = Integer.parseInt(tbox2.getText());
-            String name = tbox1.getText();
-            String cargo = jcombobox.getSelectedItem().toString();
-            Usuario user = new Usuario(codigo, name, cargo);
-            Interfaz.lista_usuarios.add(user);
-            JOptionPane.showMessageDialog(null, "Usuario agregado");
-            tbox1.setText("");
-            tbox2.setText("");
-        } else if (obtn_productos.isSelected()) {
-            int codigo = Integer.parseInt(tbox2.getText());
-            String name = tbox1.getText();
-            int costo = Integer.parseInt(tbox3.getText());
-            Producto product = new Producto(codigo, costo, name);
-            Interfaz.lista_productos.add(product);
-            JOptionPane.showMessageDialog(null, "Producto agregado");
-            tbox1.setText("");
-            tbox2.setText("");
-            tbox3.setText("");
+        try {
+            if (obtn_personas.isSelected()) {
+                int codigo = Integer.parseInt(tbox2.getText());
+                String name = tbox1.getText();
+                String cargo = jcombobox.getSelectedItem().toString();
+                Usuario user = new Usuario(codigo, name, cargo);
+                Interfaz.lista_usuarios.add(user);
+                JOptionPane.showMessageDialog(null, "Usuario agregado");
+                tbox1.setText("");
+                tbox2.setText("");
+            } else if (obtn_productos.isSelected()) {
+                int codigo = Integer.parseInt(tbox2.getText());
+                String name = tbox1.getText();
+                int costo = Integer.parseInt(tbox3.getText());
+                Producto product = new Producto(codigo, costo, name);
+                Interfaz.lista_productos.add(product);
+                JOptionPane.showMessageDialog(null, "Producto agregado");
+                tbox1.setText("");
+                tbox2.setText("");
+                tbox3.setText("");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "ingrese datos de manera correcta");
         }
     }//GEN-LAST:event_btn_agregarActionPerformed
 
@@ -324,7 +328,7 @@ public class dialog_usuario extends javax.swing.JDialog {
             }
         });
     }
-    
+
     public Icon seticon(String url, JLabel label) {
         ImageIcon icon = new ImageIcon(getClass().getResource(url));
         int ancho = label.getWidth();
@@ -332,11 +336,11 @@ public class dialog_usuario extends javax.swing.JDialog {
         ImageIcon icono = new ImageIcon(icon.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
         return icono;
     }
-    
+
     class fondoPanel extends JPanel {
-        
+
         private Image imagen;
-        
+
         @Override
         public void paint(Graphics g) {
             imagen = new ImageIcon(getClass().getResource("/imagenes/fondo_dialog.jpg")).getImage();
