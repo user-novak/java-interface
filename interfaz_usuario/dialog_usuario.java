@@ -78,10 +78,23 @@ public class dialog_usuario extends javax.swing.JDialog {
                 tbox1ActionPerformed(evt);
             }
         });
+        tbox1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tbox1KeyTyped(evt);
+            }
+        });
 
         tbox2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tbox2ActionPerformed(evt);
+            }
+        });
+        tbox2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tbox2KeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tbox2KeyTyped(evt);
             }
         });
 
@@ -144,6 +157,11 @@ public class dialog_usuario extends javax.swing.JDialog {
         tbox3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tbox3ActionPerformed(evt);
+            }
+        });
+        tbox3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tbox3KeyTyped(evt);
             }
         });
 
@@ -251,7 +269,29 @@ public class dialog_usuario extends javax.swing.JDialog {
     }//GEN-LAST:event_tbox1ActionPerformed
 
     private void tbox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbox2ActionPerformed
-        tbox2.transferFocus();
+        boolean tb = true;
+        if (obtn_productos.isSelected()) {
+            for (Producto p : Interfaz.lista_productos) {
+                if (p.getCod() == Integer.parseInt(tbox2.getText())) {
+                    JOptionPane.showMessageDialog(null, "Codigo ya existente");
+                    tbox2.setText("");
+                    tb = false;
+                    break;
+                }
+            }
+        } else {
+            for (Usuario us : Interfaz.lista_usuarios) {
+                if (us.getCod() == Integer.parseInt(tbox2.getText())) {
+                    JOptionPane.showMessageDialog(null, "Codigo ya existente");
+                    tbox2.setText("");
+                    tb = false;
+                    break;
+                }
+            }
+        }
+        if (tb) {
+            tbox2.transferFocus();
+        }
     }//GEN-LAST:event_tbox2ActionPerformed
 
     private void btn_exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_exitActionPerformed
@@ -314,6 +354,34 @@ public class dialog_usuario extends javax.swing.JDialog {
     private void obtn_productosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_obtn_productosMouseClicked
 
     }//GEN-LAST:event_obtn_productosMouseClicked
+
+    private void tbox1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbox1KeyTyped
+        //para evitar que pongan numeros o cualquier caracter que no sea letras
+        char caracter = evt.getKeyChar();
+        if (((caracter < 'A') || (caracter > 'Z')) && ((caracter < 'a') || (caracter > 'z')) && (caracter != 32)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_tbox1KeyTyped
+
+    private void tbox2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbox2KeyTyped
+        //para que solo ponga numeros
+        char caracter = evt.getKeyChar();
+        if ((caracter < '0') || (caracter > '9')) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_tbox2KeyTyped
+
+    private void tbox3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbox3KeyTyped
+        //para que solo ponga numeros
+        char caracter = evt.getKeyChar();
+        if ((caracter < '0') || (caracter > '9')) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_tbox3KeyTyped
+
+    private void tbox2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbox2KeyPressed
+
+    }//GEN-LAST:event_tbox2KeyPressed
 
     /**
      * @param args the command line arguments
