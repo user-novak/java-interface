@@ -224,6 +224,7 @@ public class dialog_vender extends javax.swing.JDialog {
             r.setUsuario(usuario);
             r.setTotal(total);
             Interfaz.lista_registros.add(r);
+            r.setCod_registro(++Interfaz.cod_registro);
             JOptionPane.showMessageDialog(null, "Boleta emitida");
             dispose();
         } else {

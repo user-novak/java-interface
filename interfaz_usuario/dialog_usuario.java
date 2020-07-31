@@ -121,6 +121,11 @@ public class dialog_usuario extends javax.swing.JDialog {
         obtn_productos.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         obtn_productos.setText("productos");
         obtn_productos.setOpaque(false);
+        obtn_productos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                obtn_productosMouseClicked(evt);
+            }
+        });
         obtn_productos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 obtn_productosActionPerformed(evt);
@@ -305,6 +310,10 @@ public class dialog_usuario extends javax.swing.JDialog {
     private void obtn_productosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_obtn_productosActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_obtn_productosActionPerformed
+
+    private void obtn_productosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_obtn_productosMouseClicked
+
+    }//GEN-LAST:event_obtn_productosMouseClicked
 
     /**
      * @param args the command line arguments

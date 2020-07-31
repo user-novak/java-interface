@@ -13,13 +13,19 @@ import java.util.ArrayList;
  */
 public class Registro {
 
-    public Usuario usuario;
-    public ArrayList<Producto> lista_productos;
+    private Usuario usuario;
+    private ArrayList<Producto> lista_productos;
     private int total;
+    private int cod_registro;
 
     public Registro() {
         usuario = new Usuario();
         lista_productos = new ArrayList<>();
+    }
+
+    public Registro(int total, int cod_registro) {
+        this.total = total;
+        this.cod_registro = cod_registro;
     }
 
     public Registro(int total) {
@@ -50,9 +56,18 @@ public class Registro {
         this.total = total;
     }
 
+    public int getCod_registro() {
+        return cod_registro;
+    }
+
+    public void setCod_registro(int cod_registro) {
+        this.cod_registro = cod_registro;
+    }
+
     public String boleta() {
         String boleta = "";
-        boleta += "registro: " + usuario.toString() + "\n";
+        boleta += "registro: " + getCod_registro() + "\n" + usuario.toString() + "\n";
+        boleta += "Productos:\n ";
         for (Producto e : lista_productos) {
             boleta += e.toString() + "\n";
         }

@@ -15,13 +15,14 @@ import javax.swing.*;
  * @author NOVAK
  */
 public class Interfaz extends javax.swing.JFrame {
-
+    
     fondoPanel fondo = new fondoPanel();
     public static ArrayList<Usuario> lista_usuarios = new ArrayList<>();
     public static ArrayList<Producto> lista_productos = new ArrayList<>();
     public static ArrayList<Registro> lista_registros = new ArrayList<>();
     public static String tipo_usuario;
-
+    public static int cod_registro;
+    
     public Interfaz() {
         this.setContentPane(fondo);
         initComponents();
@@ -33,7 +34,7 @@ public class Interfaz extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         this.setVisible(true);
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -83,6 +84,11 @@ public class Interfaz extends javax.swing.JFrame {
         jButton2.setBackground(new java.awt.Color(102, 102, 225));
         jButton2.setFont(new java.awt.Font("Impact", 1, 14)); // NOI18N
         jButton2.setText("registros");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -142,10 +148,16 @@ public class Interfaz extends javax.swing.JFrame {
         d1.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        dialog_registro d1 = new dialog_registro(this, false);
+        d1.setLocationRelativeTo(null);
+        d1.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
+    
     class fondoPanel extends JPanel {
-
+        
         private Image imagen;
-
+        
         @Override
         public void paint(Graphics g) {
             imagen = new ImageIcon(getClass().getResource("/imagenes/fondo_principal.jpg")).getImage();
@@ -154,7 +166,7 @@ public class Interfaz extends javax.swing.JFrame {
             super.paint(g);
         }
     }
-
+    
     public Icon setIcono(String url, JButton boton) {
         ImageIcon icon = new ImageIcon(getClass().getResource(url));
         int ancho = boton.getWidth();
@@ -162,7 +174,7 @@ public class Interfaz extends javax.swing.JFrame {
         ImageIcon icono = new ImageIcon(icon.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
         return icono;
     }
-
+    
     public Icon seticonlabel(String url, JLabel label) {
         ImageIcon icon = new ImageIcon(getClass().getResource(url));
         int ancho = label.getWidth();
@@ -170,7 +182,7 @@ public class Interfaz extends javax.swing.JFrame {
         ImageIcon icono = new ImageIcon(icon.getImage().getScaledInstance(ancho, alto, Image.SCALE_DEFAULT));
         return icono;
     }
-
+    
     public Icon setEfecto_presionado(String url, JButton boton, int ancho, int alto) {
         ImageIcon icon = new ImageIcon(getClass().getResource(url));
         int an = boton.getWidth() - ancho;
@@ -178,7 +190,7 @@ public class Interfaz extends javax.swing.JFrame {
         ImageIcon icono = new ImageIcon(icon.getImage().getScaledInstance(an, al, Image.SCALE_DEFAULT));
         return icono;
     }
-
+    
     public String asignamiento_usario() {
         do {
             String t = JOptionPane.showInputDialog("ingrese su tipo de usuario");
@@ -191,7 +203,7 @@ public class Interfaz extends javax.swing.JFrame {
             }
         } while (true);
     }
-
+    
     public void comprobacion() {
         if (tipo_usuario.equals("empleado")) {
             btn_agre.setVisible(false);
