@@ -310,6 +310,7 @@ public class dialog_usuario extends javax.swing.JDialog {
                 JOptionPane.showMessageDialog(null, "Usuario agregado");
                 tbox1.setText("");
                 tbox2.setText("");
+                archivos.imprimirUsuarios(user);
             } else if (obtn_productos.isSelected()) {
                 int codigo = Integer.parseInt(tbox2.getText());
                 String name = tbox1.getText();
@@ -320,6 +321,7 @@ public class dialog_usuario extends javax.swing.JDialog {
                 tbox1.setText("");
                 tbox2.setText("");
                 tbox3.setText("");
+                archivos.imprimirProductos(product);
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "ingrese datos de manera correcta");
@@ -445,6 +447,7 @@ public class dialog_usuario extends javax.swing.JDialog {
             super.paint(g);
         }
     }
+    Archivos archivos =new Archivos();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_agregar;
     private javax.swing.JButton btn_cambiar;

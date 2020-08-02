@@ -67,6 +67,11 @@ public class dialog_registro extends javax.swing.JDialog {
 
         areaTexto.setColumns(20);
         areaTexto.setRows(5);
+        areaTexto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                areaTextoKeyPressed(evt);
+            }
+        });
         jScrollPane2.setViewportView(areaTexto);
 
         btn_salir.setText("back");
@@ -77,6 +82,11 @@ public class dialog_registro extends javax.swing.JDialog {
         });
 
         btn_imprimir.setText("imprimir");
+        btn_imprimir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_imprimirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -133,11 +143,27 @@ public class dialog_registro extends javax.swing.JDialog {
             }
         }
         areaTexto.setText(r.boleta());
+        codigo_impresion = r.getCod_registro();
     }//GEN-LAST:event_tabla_registrosMouseClicked
 
     private void btn_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salirActionPerformed
         this.dispose();
     }//GEN-LAST:event_btn_salirActionPerformed
+
+    private void btn_imprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_imprimirActionPerformed
+        Registro r = new Registro();
+        for (Registro registro : Interfaz.lista_registros) {
+            if (registro.getCod_registro() == codigo_impresion) {
+                r = registro;
+                break;
+            }
+        }
+        archivo.imprimirBoletas(r);
+    }//GEN-LAST:event_btn_imprimirActionPerformed
+
+    private void areaTextoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_areaTextoKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_areaTextoKeyPressed
 
     /**
      * @param args the command line arguments
@@ -215,6 +241,8 @@ public class dialog_registro extends javax.swing.JDialog {
         }
     }
     DefaultTableModel modelo = new DefaultTableModel();
+    Archivos archivo = new Archivos();
+    int codigo_impresion;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea areaTexto;
     private javax.swing.JButton btn_imprimir;

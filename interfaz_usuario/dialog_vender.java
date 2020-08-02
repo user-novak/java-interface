@@ -226,6 +226,7 @@ public class dialog_vender extends javax.swing.JDialog {
             Interfaz.lista_registros.add(r);
             r.setCod_registro(++Interfaz.cod_registro);
             JOptionPane.showMessageDialog(null, "Boleta emitida");
+            archivos.imprimirRegistros(r);
             dispose();
         } else {
             JOptionPane.showMessageDialog(null, "Ingrese datos para facturar boleta");
@@ -309,6 +310,7 @@ public class dialog_vender extends javax.swing.JDialog {
     Usuario usuario;
     public int total = 0;
     public boolean b1 = false, b2 = false;
+    Archivos archivos = new Archivos();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_back;
     private javax.swing.JButton btn_buscarProducto;

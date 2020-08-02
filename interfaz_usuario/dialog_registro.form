@@ -114,6 +114,9 @@
                 <Property name="columns" type="int" value="20"/>
                 <Property name="rows" type="int" value="5"/>
               </Properties>
+              <Events>
+                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="areaTextoKeyPressed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -129,6 +132,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="imprimir"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_imprimirActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
